@@ -16,6 +16,11 @@ appModule.controller("MainControler",[
                  
 
             };
+            vm.tageList=[
+                {name:"HD"},
+                {name:"Khmer Movie"},
+                {name:"Chinese"}
+                          ];
     mobileUIViewService.init($scope, $window, vm,
         function () {
             vm.filters();
