@@ -32,6 +32,9 @@
     color: gray;
 
 }
+.mob-tag-container{
+    min-height: 53px;
+}
 .mob-tag{
     font-size: 9px;
     background: #bfbbbb;
@@ -42,4 +45,21 @@
     height: 8px;
     padding-left: 4px;
     padding-right: 4px;
+    margin-right: 3px;
+}
+.mob-detail{
+    width: 100%;
+    height: 30px;
+    border: 1px solid #ccc;
+
+}
+.mob-detail-date{
+    float: left;
+    margin-top: 2px;
+    margin-right: 6px
+}
+.mob-detail-date-text{
+    margin-left: 3px;
+    font-size: 13px;
+    
 }
