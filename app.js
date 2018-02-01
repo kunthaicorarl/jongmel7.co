@@ -3,12 +3,15 @@ appModule.controller("MainControler",[
     "mobileUIViewService",
     "$scope",
     "$window",
+    "$sce",
     function(
         mobileUIViewService,
         $scope,
-        $window){
+        $window,
+        $sce){
             var vm=this;
-            vm.url="https://kunthaicorarl.github.io/jongmel7.co/index.html";
+
+            vm.url=$sce.trustAsResourceUrl("https://kunthaicorarl.github.io/jongmel7.co/index.html");
             vm.filters=function(){
                  
 
