@@ -54,8 +54,8 @@ appModule.controller("MainControler",[
                           'Content-Type': undefined
                         },
                         data: {  
-                            'max-results': vm.number,
-                            'start-index': vm.start,
+                            'maxResults': vm.number,
+                            'startIndex': vm.start,
                          }
                     };
                     vm.loading = true;
