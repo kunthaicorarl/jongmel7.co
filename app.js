@@ -1,18 +1,7 @@
 var appModule=angular.module("app",[]);
 appModule.config([
     function () {
-        app.itemPerPage =50;
-        app.tableState = {
-            pagination: {
-                start: 0,
-                number: app.itemsPerPage
-            },
-            sort: {
-                predicate: "",
-                reverse: false
-            }
-        };
-
+       
 
     }]);
 
@@ -34,8 +23,17 @@ appModule.controller("MainControler",[
             var vm=this;
             vm.urlFeed="http://www.jongmel7.co/feeds/posts/summary?alt=json";
             //initialize option table app
-            vm.tableState = app.tableState;
-            vm.itemPerPage = app.itemPerPage;
+            vm.itemPerPage =50;
+            vm.tableState = {
+                pagination: {
+                    start: 0,
+                    number: vm.itemsPerPage
+                },
+                sort: {
+                    predicate: "",
+                    reverse: false
+                }
+            };
             vm.model={};
             vm.url=$sce.trustAsResourceUrl("https://kunthaicorarl.github.io/jongmel7.co/index.html");
             vm.filters = function (arg) {
