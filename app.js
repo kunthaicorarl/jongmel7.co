@@ -48,7 +48,7 @@ appModule.controller("MainControler",[
                     vm.start = pagination.start || 0;     // This is NOT the page number, but the index of item in the list that you want to use to display the table.
                     vm.number = pagination.number || vm.itemPerPage;  // Number of entries showed per page.
                     var filters = {
-                        method: 'GET',
+                        method: 'POST',
                         url: vm.urlFeed,
                         headers: {
                           'Content-Type': undefined
@@ -60,7 +60,7 @@ appModule.controller("MainControler",[
                     };
                     vm.loading = true;
                     vm.success = false;
-                    $http.get(filters).then(function(result){
+                    $http(filters).then(function(result){
                        console.log(result);
                       //  initMobileViewData(result);
                     }).finally(function () {
