@@ -48,14 +48,14 @@ appModule.controller("MainControler",[
                     vm.start = pagination.start || 0;     // This is NOT the page number, but the index of item in the list that you want to use to display the table.
                     vm.number = pagination.number || vm.itemPerPage;  // Number of entries showed per page.
                     var filters = {
-                        method: 'POST',
+                        method: 'GET',
                         url: vm.urlFeed,
                         headers: {
                           'Content-Type': undefined
                         },
                         data: {  
-                            'maxResults': vm.number,
-                            'startIndex': vm.start,
+                            'max-results': vm.number,
+                            'start-index': vm.start,
                          }
                     };
                     vm.loading = true;
