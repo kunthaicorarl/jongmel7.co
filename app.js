@@ -95,11 +95,15 @@ appModule.controller("MainControler",[
                 {name:"Khmer Movie"},
                 {name:"Chinese"}
                           ];
-     mobileUIViewService.init($scope, $window, vm,
-        function () {
-            vm.filters();
-        }
-    );
+   vm.isMobileView=false;
+     if($location.href=='http://www.jongmel7.co/'){
+        mobileUIViewService.init($scope, $window, vm,
+            function () {
+                vm.filters();
+            }
+        );
+     }                  
+    
     function initMobileViewData(result) {
         if (vm.isMobileView) {
             vm.success = true;
