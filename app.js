@@ -26,7 +26,7 @@ appModule.controller("MainControler",[
             vm.urlFeed="http://www.jongmel7.co/feeds/posts/summary?alt=json";
             //initialize option table app
             vm.currentUrl=$window.location.href;
-            vm.itemPerPage =50;
+            vm.itemPerPage =5;
             vm.tableState = {
                 pagination: {
                     start: 0,
