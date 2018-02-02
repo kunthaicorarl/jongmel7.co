@@ -122,7 +122,7 @@ appModule.controller("MainControler",[
         }
        vm.onClickLinkView=function(url){
         vm.isMobileView=false;
-        $location.url=url;
+        $location.url(url);
        };
     }
 

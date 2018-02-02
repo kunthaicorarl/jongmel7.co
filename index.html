@@ -6,7 +6,7 @@
                                                 alt="{{row.title.$t}}" />
                                 </div>
                                 <div class="col-sm-8 col-xs-8 mob-text">
-                                <div class="title">{{row.title.$t}}</div>
+                                <div class="title" ng-click="vm.onClickLinkView(row.link[4].href)">{{row.title.$t}}</div>
                                 <div class="mob-tag-container">
                                         <span class="mob-tag" ng-repeat="tage in row.category">{{tage.term}}</span>
                                 </div>
