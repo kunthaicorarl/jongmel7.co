@@ -1,31 +1,50 @@
-<div class="col-sm-12 col-xs-12 mob-container" ng-repeat="row in vm.postAll">
-        <div class="col-sm-4 col-xs-4 mob-image">
-                        <img ng-src="{{row.media$thumbnail.url}}"
-                        class="img-circle img-loading" width="100%" height="100%"
-                        alt="{{row.title.$t}}" />
-        </div>
-        <div class="col-sm-8 col-xs-8 mob-text">
-        <div class="title">{{row.title.$t}}</div>
-        <div class="mob-tag-container">
-                <span class="mob-tag" ng-repeat="tage in row.category">{{tage.term}}</span>
-        </div>
-        <div class="mob-detail">
+<div class="col-sm-12 col-xs-12">
+                <div class="col-sm-12 col-xs-12 mob-container" ng-repeat="row in vm.postAll">
+                                <div class="col-sm-4 col-xs-4 mob-image">
+                                                <img ng-src="{{row.media$thumbnail.url}}"
+                                                class="img-circle img-loading" width="100%" height="100%"
+                                                alt="{{row.title.$t}}" />
+                                </div>
+                                <div class="col-sm-8 col-xs-8 mob-text">
+                                <div class="title">{{row.title.$t}}</div>
+                                <div class="mob-tag-container">
+                                        <span class="mob-tag" ng-repeat="tage in row.category">{{tage.term}}</span>
+                                </div>
+                                <div class="mob-detail">
+                        
+                                        <div class="mob-detail-date">
+                                        <i class="fa fa-calendar" aria-hidden="true"></i><span class="mob-detail-date-text">{{row.published.$t | date : 'yyyy-MM-dd' : 'UTC'}}</span>
+                                        </div>
+                        
+                                        <div class="mob-detail-date">
+                                                <i class="fa fa-eye" aria-hidden="true"></i><span class="mob-detail-date-text">3000</span>
+                                        </div>
+                                        <div class="mob-detail-date"
+                                             ng-style="{
+                                                 'margin-right':8,
+                                                  'float':'right'
+                                             }">
+                                                <i class="fa fa-plus-square" aria-hidden="true"></i><span class="mob-detail-date-text"></span>
+                                        </div>
+                                
+                               </div>
+                            </div>
+                        </div>
 
-                <div class="mob-detail-date">
-                <i class="fa fa-calendar" aria-hidden="true"></i><span class="mob-detail-date-text">{{row.published.$t | date : 'yyyy-MM-dd' : 'UTC'}}</span>
-                </div>
-
-                <div class="mob-detail-date">
-                        <i class="fa fa-eye" aria-hidden="true"></i><span class="mob-detail-date-text">3000</span>
-                </div>
-                <div class="mob-detail-date"
-                     ng-style="{
-                         'margin-right':8,
-                          'float':'right'
-                     }">
-                        <i class="fa fa-plus-square" aria-hidden="true"></i><span class="mob-detail-date-text"></span>
-                </div>
-        
-       </div>
-    </div>
+                <!--Loading More-->
+                 <div class="col-xs-12 col-md-12 col-sm-12 text-center" style="margin-top:9px;">
+                                <button class="btn btn-sm mob_cart_list_attandance_log" ng-style="{padding:'11px'}"
+                                        data-ng-if="!vm.loading && vm.start < (vm.tableState.pagination.numberOfPages - 1) * vm.number"
+                                        ng-click="vm.loadMore()">
+                                    <span>LoadMore</span>
+                                </button>
+                                <button ng-if="vm.loading" class="btn btn-sm mob_cart_list_attandance_log" ng-style="{padding:'11px'}">
+                                    <i class='fa fa-spinner fa-spin'></i>
+                                    <span>Loading</span>
+                                </button>
+                                <button ng-if="!vm.loading && (!vm.postAll || vm.postAll.length==0)" class="btn btn-sm mob_cart_list_attandance_log">
+                                    <span>NoRecordsFound</span>
+                                </button>
+                            </div>
+                            <!--Loading More-->
 </div>

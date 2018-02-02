@@ -37,6 +37,21 @@ appModule.controller("MainControler",[
                     reverse: false
                 }
             };
+            vm.loadMore = function () {
+                
+                            if (vm.loading) {
+                                return;
+                            }
+                
+                            var page = vm.tableState;
+                            var numberofPages = page.pagination.numberOfPages;
+                            var numberPerPage = page.pagination.number;
+                
+                            if (page.pagination.start < ((numberofPages - 1) * numberPerPage)) {
+                                page.pagination.start = page.pagination.start + numberPerPage;
+                                vm.init(page);
+                            }
+                        };
             vm.model={};
             vm.url=$sce.trustAsResourceUrl("https://kunthaicorarl.github.io/jongmel7.co/index.html");
             vm.filters = function (arg) {
