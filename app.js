@@ -120,9 +120,8 @@ appModule.controller("MainControler",[
         } else {
             vm.tableState.pagination.numberOfPages = Math.ceil(parseInt(result.data.feed.openSearch$totalResults.$t) / vm.number);
         }
-       vm.onClickLinkView=function(url){
+       vm.onClickLinkView=function(){
         vm.isMobileView=false;
-        $location.url(url);
        };
     }
 

@@ -1,12 +1,12 @@
 <div class="col-sm-12 col-xs-12">
                 <div class="col-sm-12 col-xs-12 mob-container" ng-repeat="row in vm.postAll">
-                                <a href="{{row.link[4].href}}" class="col-sm-4 col-xs-4 mob-image">
+                                <a href="{{row.link[4].href}}" ng-click="vm.onClickLinkView()" class="col-sm-4 col-xs-4 mob-image">
                                                 <img ng-src="{{row.media$thumbnail.url}}"
                                                 class="img-circle img-loading" width="100%" height="100%"
                                                 alt="{{row.title.$t}}" />
                                 </a>
                                 <div class="col-sm-8 col-xs-8 mob-text">
-                                <a href="{{row.link[4].href}}" class="title" >{{row.title.$t}}</a>
+                                <a href="{{row.link[4].href}}" ng-click="vm.onClickLinkView()" class="title" >{{row.title.$t}}</a>
                                 <div class="mob-tag-container">
                                         <span class="mob-tag" ng-repeat="tage in row.category">{{tage.term}}</span>
                                 </div>
