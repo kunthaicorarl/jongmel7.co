@@ -14,6 +14,7 @@ appModule.controller("MainControler",[
     "$http",
     "$timeout",
     "$window",
+    "$location",
     function(
         mobileUIViewService,
         $scope,
@@ -21,7 +22,8 @@ appModule.controller("MainControler",[
         $sce,
         $http,
         $timeout,
-        $window){
+        $window,
+        $location){
             var vm=this;
             vm.urlFeed="http://www.jongmel7.co/feeds/posts/summary?alt=json";
             //initialize option table app
@@ -93,7 +95,7 @@ appModule.controller("MainControler",[
                 {name:"Khmer Movie"},
                 {name:"Chinese"}
                           ];
-    mobileUIViewService.init($scope, $window, vm,
+     mobileUIViewService.init($scope, $window, vm,
         function () {
             vm.filters();
         }
@@ -118,7 +120,10 @@ appModule.controller("MainControler",[
         } else {
             vm.tableState.pagination.numberOfPages = Math.ceil(parseInt(result.data.feed.openSearch$totalResults.$t) / vm.number);
         }
-       
+       vm.onClickLinkView=function(url){
+        vm.isMobileView=false;
+        $location.url=url;
+       };
     }
 
 }]);
