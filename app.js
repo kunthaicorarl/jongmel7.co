@@ -13,16 +13,19 @@ appModule.controller("MainControler",[
     "$sce",
     "$http",
     "$timeout",
+    "$window",
     function(
         mobileUIViewService,
         $scope,
         $window,
         $sce,
         $http,
-        $timeout){
+        $timeout,
+        $window){
             var vm=this;
             vm.urlFeed="http://www.jongmel7.co/feeds/posts/summary?alt=json";
             //initialize option table app
+            vm.currentUrl=$window.location.href;
             vm.itemPerPage =50;
             vm.tableState = {
                 pagination: {
