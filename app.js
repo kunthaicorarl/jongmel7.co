@@ -96,7 +96,7 @@ appModule.controller("MainControler",[
                 {name:"Chinese"}
                           ];
    vm.isMobileView=false;
-     if($location.href=='http://www.jongmel7.co/'){
+     if($location.$$absUrl=='http://www.jongmel7.co/' || $location.$$absUrl=="http://www.jongmel7.co/?m=1"){
         mobileUIViewService.init($scope, $window, vm,
             function () {
                 vm.filters();
