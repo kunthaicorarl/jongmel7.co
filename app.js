@@ -62,7 +62,8 @@ appModule.controller("MainControler",[
                     vm.success = false;
                     $http(filters).then(function(result){
                        console.log(result);
-                      //  initMobileViewData(result);
+                       vm.posts=result.data.feed.entry;
+                       initMobileViewData(result);
                     }).finally(function () {
                         if (!vm.success)
                             vm.loading = false;
@@ -92,12 +93,12 @@ appModule.controller("MainControler",[
                         vm.postAll.push(item);
                     });
                 }
-                vm.tableState.pagination.numberOfPages = Math.ceil(result.totalCount / vm.number);
+                vm.tableState.pagination.numberOfPages = Math.ceil(parseInt(result.data.feed.openSearch$totalResults.$t) / vm.number);
                 vm.loading = false;
             }, 200);
 
         } else {
-            vm.tableState.pagination.numberOfPages = Math.ceil(result.totalCount / vm.number);
+            vm.tableState.pagination.numberOfPages = Math.ceil(parseInt(result.data.feed.openSearch$totalResults.$t) / vm.number);
         }
        
     }
