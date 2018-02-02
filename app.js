@@ -29,7 +29,7 @@ appModule.controller("MainControler",[
             vm.itemPerPage =3;
             vm.tableState = {
                 pagination: {
-                    start: 0,
+                    start: 1,
                     number: vm.itemsPerPage
                 },
                 sort: {
@@ -55,7 +55,7 @@ appModule.controller("MainControler",[
             vm.model={};
             vm.url=$sce.trustAsResourceUrl("https://kunthaicorarl.github.io/jongmel7.co/index.html");
             vm.filters = function (arg) {
-                vm.tableState.pagination.start = 0;
+                vm.tableState.pagination.start = 1;
                 vm.postAll = [];
                 vm.init(vm.tableState);
             };
@@ -63,7 +63,7 @@ appModule.controller("MainControler",[
                 vm.tableState = tableState;
                 vm.tableState.pagination.number = vm.itemPerPage;
                 var pagination = tableState.pagination;
-                    vm.start = pagination.start || 0;     // This is NOT the page number, but the index of item in the list that you want to use to display the table.
+                    vm.start = pagination.start || 1;     // This is NOT the page number, but the index of item in the list that you want to use to display the table.
                     vm.number = pagination.number || vm.itemPerPage;  // Number of entries showed per page.
                     var filters = {
                         method: 'POST',
@@ -72,7 +72,7 @@ appModule.controller("MainControler",[
                           'Content-Type': undefined
                         },
                         data: {  
-                            'max-results': vm.number,
+                            'items-per-page': vm.number,
                             'start-index': vm.start,
                          }
                     };
